@@ -1,7 +1,5 @@
-function pwd() {
-	process.stdout.write(process.cwd()); //pwd
-
-	process.stdout.write("\nprompt > "); //prompt
+function pwd(done) {
+	done(process.cwd()); //pwd
 }
 
 module.exports = pwd;

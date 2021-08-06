@@ -1,13 +1,13 @@
-function cat(fileName){
-  const fs = require("fs");
+function cat(done, fileName) {
+	const fs = require("fs");
 
-  fs.readFile(`./${fileName}`, function (err, content){
-    if(err) {}
-    else {
-      console.log(content.toString())
-      process.stdout.write("\nprompt > "); //prompt
-    }
-  })
+	fs.readFile(`./${fileName}`, function (err, content) {
+		if (err) {
+			done(err);
+		} else {
+			done(content.toString());
+		}
+	});
 }
 
 module.exports = cat;

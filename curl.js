@@ -1,14 +1,13 @@
-function curl(site){
-  const request = require('request')
+function curl(done, site) {
+	const request = require("request");
 
-  request(site, function(err, response, body){
-    if(err){
-    }
-    else {
-      console.log(body)
-      process.stdout.write("prompt > ");
-    }
-  })
+	request(site, function (err, response, body) {
+		if (err) {
+			done(err);
+		} else {
+			done(body);
+		}
+	});
 }
 
 module.exports = curl;
